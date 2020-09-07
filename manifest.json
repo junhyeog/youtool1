@@ -1,10 +1,12 @@
 {
-  "name": "Getting Started Example",
+  "name": "YouTool1",
   "version": "1.0",
   "description": "Build an Extension!",
   "permissions": [
     "storage",
-    "declarativeContent"
+    "declarativeContent",
+    "activeTab",
+    "contextMenus"
   ],
   "background": {
     "scripts": [
@@ -12,6 +14,16 @@
     ],
     "persistent": false
   },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ],
   "page_action": {
     "default_popup": "popup.html",
     "default_icon": {
@@ -21,5 +33,6 @@
       "128": "images/get_started128.png"
     }
   },
+  "options_page": "options.html",
   "manifest_version": 2
 }
